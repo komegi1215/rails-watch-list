@@ -1,13 +1,21 @@
 <div class = "container">
 
+<div class="card-trip">
+ <h2>Movie Lists</h2>
+  <img src="app/assets/images/movie.jpg"/>
+</div>
+
+
   <ul style="list-style: none;">
     <% @lists.each do |list| %>
-      <li>
-      <h2><%= list.name %></h2>
-      <%= link_to "See details", list_path(list), class: "btn btn-primary"%>
-      </li>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <h2><%= link_to list.name, list_path(list) %></h2>
+</div>
+
     <% end %>
   </ul>
- <%= link_to "Add a new list", new_list_path %>
 
+<div>
+   <%= link_to "Add a new list", new_list_path %>
+</div>
 </div>
