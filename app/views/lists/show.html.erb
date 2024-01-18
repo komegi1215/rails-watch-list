@@ -2,6 +2,16 @@
 <div>
   <h2><%= @list.name %> </h2>
 </div>
+<div>
+ <% if @list.photo %>
+          <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= puts "no pic to show" %>
+          <!-- Add a placeholder image or handle the case where photo is nil -->
+        <% end %>
+ </div>
+
+
  <ul style="list-style: none;">
 </div>
 
