@@ -19,13 +19,17 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-
+    @bookmarks = @list.bookmarks
   end
 
   private
 
   def list_params
     params.require(:list).permit(:name, :photo)
+  end
+
+  def movie_params
+    params.require(:movie).permit(:title, :overview, :poster_url, :rating)
   end
 
 end

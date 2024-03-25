@@ -10,6 +10,19 @@
           <!-- Add a placeholder image or handle the case where photo is nil -->
         <% end %>
  </div>
+ <div class="bookmark-contianer">
+ <% @bookmarks.each do |bookmark| %>
+  <h1><%= bookmark.movie.title %></h1>
+  <h3><%= bookmark.movie.overview %></h3>
+
+<%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
+
+
+
+ <% end %>
+
+
+ </div>
 
 
  <ul style="list-style: none;">
