@@ -1,4 +1,43 @@
 .avatar-bordered-follow {
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 300px;
+}
+
+.top-image {
+  width: 100%;
+}
+
+.list-container {
+  margin-top: 30px;
+}
+
+.bookmark-container {
+  display:flex;
+  width: 95%;
+}
+
+.movie-cards {
+  display:flex;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: space-between;
+
+}
+
+.movie-poster {
+  width: 20%;
+}
+
+.movie-description {
+  width: 70%
+}
+
+.list-nav {
+  position: relative;
+}
+
+.list-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

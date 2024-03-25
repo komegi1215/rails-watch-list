@@ -1,34 +1,31 @@
-<div class = "container">
-<div>
-  <h2><%= @list.name %> </h2>
-</div>
-<div>
- <% if @list.photo %>
-          <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-          <%= puts "no pic to show" %>
-          <!-- Add a placeholder image or handle the case where photo is nil -->
+<div class = "container list-container">
+  <div class = "list-nav">
+    <% if @list.photo %>
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400, class: "top-image", crop: :fill %>
+    <% else %>
+      <%= puts "no pic to show" %>
+      <!-- Add a placeholder image or handle the case where photo is nil -->
+    <% end %>
+    <h2 class = "list-name"><%= @list.name %> </h2>
+  </div>
+  <% @bookmarks.each do |bookmark| %>
+    <div class="bookmark-contianer">
+      <div class="movie-cards">
+        <div class ="movie-poster">
+          <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
+        </div>
+        <div class="movie-description">
+          <h1><%= bookmark.movie.title %></h1>
+          <% (1..bookmark.movie.rating.to_i).each do %>
+            ⭐️
+            <% end %>
+          <h3><%= bookmark.movie.overview %></h3>
+              <h3><%= bookmark.comment %></h3>
+            </div>
+          </div>
         <% end %>
- </div>
- <div class="bookmark-contianer">
- <% @bookmarks.each do |bookmark| %>
-  <h1><%= bookmark.movie.title %></h1>
-  <h3><%= bookmark.movie.overview %></h3>
-
-<%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
-
-
-
- <% end %>
-
-
- </div>
-
-
- <ul style="list-style: none;">
-</div>
-
-  </ul>
-<div class = "container">
-  <%= link_to "gp back to the lists", lists_path %>
-</div>
+      </div>
+      <div class = "link">
+        <%= link_to "gp back to the lists", lists_path %>
+      </div>
+    </div>
