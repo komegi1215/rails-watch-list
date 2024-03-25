@@ -16,16 +16,23 @@
         </div>
         <div class="movie-description">
           <h1><%= bookmark.movie.title %></h1>
-          <% (1..bookmark.movie.rating.to_i).each do %>
-            ⭐️
+          <% (1..10).each do |i| %>
+            <% if i <= bookmark.movie.rating.to_i %>
+              <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
+          <% end %>
+          <% (1..10).each do |i| %>
+            <% if i > bookmark.movie.rating.to_i %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
           <h3><%= bookmark.movie.overview %></h3>
-              <h3><%= bookmark.comment %></h3>
-            </div>
-          </div>
-        <% end %>
+          <h3><%= bookmark.comment %></h3>
+        </div>
       </div>
-      <div class = "link">
-        <%= link_to "gp back to the lists", lists_path %>
-      </div>
-    </div>
+    <% end %>
+  </div>
+  <div class = "link">
+    <%= link_to "gp back to the lists", lists_path %>
+  </div>
+</div>
