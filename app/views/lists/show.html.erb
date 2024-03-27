@@ -8,34 +8,36 @@
     <% end %>
     <h2 class = "list-name"><%= @list.name %> </h2>
   </div>
-  <div class="add-button">
-    <%= link_to "add a movie", new_list_bookmark_path(@list) %>
-  </div>
-  <% @bookmarks.each do |bookmark| %>
-    <div class="bookmark-contianer">
-      <div class="movie-cards">
-        <div class ="movie-poster">
-          <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
-        </div>
-        <div class="movie-description">
-          <h1><%= bookmark.movie.title %></h1>
-          <% (1..10).each do |i| %>
-            <% if i <= bookmark.movie.rating.to_i %>
-              <i class="fa fa-star" aria-hidden="true"></i>
+  <div class="bookmark-section">
+    <div class="add-button">
+      <%= link_to "add a movie", new_list_bookmark_path(@list) %>
+    </div>
+    <% @bookmarks.each do |bookmark| %>
+      <div class="bookmark-contianer">
+        <div class="movie-cards">
+          <div class ="movie-poster">
+            <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
+          </div>
+          <div class="movie-description">
+            <h1><%= bookmark.movie.title %></h1>
+            <% (1..10).each do |i| %>
+              <% if i <= bookmark.movie.rating.to_i %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
-          <% (1..10).each do |i| %>
-            <% if i > bookmark.movie.rating.to_i %>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% (1..10).each do |i| %>
+              <% if i > bookmark.movie.rating.to_i %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
-          <h3><%= bookmark.movie.overview %></h3>
-          <h3><%= bookmark.comment %></h3>
+            <h3 class = "overview"><%= bookmark.movie.overview %></h3>
+            <h3 class ="comments"><%= bookmark.comment %></h3>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class = "link">
-    <%= link_to "gp back to the lists", lists_path %>
+      <% end %>
+    </div>
+    <div class = "link">
+      <%= link_to "<< lists", lists_path %>
+    </div>
   </div>
 </div>

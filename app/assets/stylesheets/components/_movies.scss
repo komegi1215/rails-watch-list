@@ -1,6 +1,6 @@
 .avatar-bordered-follow {
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 200px;
 }
 
 .top-image {
@@ -21,21 +21,27 @@
   flex-direction: row;
   margin: 50px;
   justify-content: space-between;
-  box-shadow: 10px 5px 5px silver;
+  background-color: rgb(177, 178, 166);
 
 }
 
-.movie-poster {
-  width: 20%;
-}
+// .movie-poster {
+//   width: 20%;
+// }
 
 .movie-description {
-  width: 70%;
-  color:white;
+  width: 80%;
+  color:rgb(42, 40, 40);
+  padding-top: 15px;
 }
 
 .list-nav {
   position: relative;
+  background-color: gray;
+}
+
+.list-nav img {
+  object-fit: contain;
 }
 
 .list-name {
@@ -62,6 +68,17 @@
   border-radius: 5px;
   margin: 0 0 0 auto;
   margin-top: 5px;
+  position:relative;
+}
+
+.add-button a {
+  text-decoration: none;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: rgb(205, 127, 50);
 }
 
 .link {
@@ -71,4 +88,26 @@
   text-align: center;
   border-radius: 5px;
   margin: 0 0 auto 0;
+  text-decoration: none;
+  position:relative;
+
+}
+
+.link a {
+  text-decoration: none;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: rgb(205, 127, 50);
+}
+
+.overview {
+  margin-top: 10px;
+}
+
+.comments {
+  font-size: 16px;
+  font-style:italic
 }
