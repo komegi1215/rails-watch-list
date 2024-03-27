@@ -8,6 +8,9 @@
     <% end %>
     <h2 class = "list-name"><%= @list.name %> </h2>
   </div>
+  <div class="add-button">
+    <%= link_to "add a movie", new_list_bookmark_path(@list) %>
+  </div>
   <% @bookmarks.each do |bookmark| %>
     <div class="bookmark-contianer">
       <div class="movie-cards">

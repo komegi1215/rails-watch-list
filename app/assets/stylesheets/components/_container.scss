@@ -1,6 +1,22 @@
 .container-item {
-  padding: 16px;
+  padding-left: 16px;
   justify-content: space-evenly;
   display: flex;
   margin: 1em;
+  width: 70%;
+}
+
+.form-container {
+  width: 30%;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.main-container {
+  display:flex;
+  justify-content:space-between
+}
+
+#new_list {
+  width: 90%;
 }

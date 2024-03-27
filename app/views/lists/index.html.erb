@@ -1,40 +1,28 @@
 <div class = "container">
-
-<div class="card-trip m-5">
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('film.jpg') %>);">
-  <div class="container">
-    <h1>Movie List</h1>
-</div>
-
-</div>
-
-<div class="container-item">
-  <ul style="list-style: none;">
-    <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key, height: 300, width: 400, crop: :fill) if list.photo.attached? %>')">
-        <h2><%= link_to list.name, list_path(list) %></h2>
+  <div class="card-trip m-5">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('film.jpg') %>);">
+      <div class="container">
+        <h1>Movie List</h1>
       </div>
-    <% end %>
-  </ul>
-
-<div class="container mt-3">
-  <div class="row justify-content-center my-5">
-    <div class="col-6">
-
-      <h1>New List</h1>
-          <%= simple_form_for [@list || List.new] do |f| %>
+    </div>
+    <div class="main-container">
+      <div class="container-item">
+        <ul style="list-style: none;">
+          <% @lists.each do |list| %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key, height: 300, width: 400, crop: :fill) if list.photo.attached? %>')">
+              <h2><%= link_to list.name, list_path(list) %></h2>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+      <div class="form-container">
+        <h1>New List</h1>
+        <%= simple_form_for [@list || List.new] do |f| %>
           <%= f.input :name %>
           <%= f.input :photo, as: :file %>
-
           <%= f.submit "Submit", class: "btn btn-primary" %>
         <% end %>
+      </div>
     </div>
   </div>
-</div>
-</div>
-
-
-
-</div>
 </div>

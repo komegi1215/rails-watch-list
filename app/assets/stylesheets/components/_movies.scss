@@ -19,8 +19,9 @@
 .movie-cards {
   display:flex;
   flex-direction: row;
-  margin: 20px;
+  margin: 50px;
   justify-content: space-between;
+  box-shadow: 10px 5px 5px silver;
 
 }
 
@@ -29,7 +30,8 @@
 }
 
 .movie-description {
-  width: 70%
+  width: 70%;
+  color:white;
 }
 
 .list-nav {
@@ -50,4 +52,23 @@
   color: white;
   border-color:black;
 
+}
+
+.add-button {
+  background-color:silver;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 0 0 auto;
+  margin-top: 5px;
+}
+
+.link {
+  background-color:silver;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 0 auto 0;
 }

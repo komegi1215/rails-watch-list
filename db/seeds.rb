@@ -6,13 +6,55 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+List.destroy_all
+puts "Lists are destroyed"
+puts "Creating new movies and new lists"
+
+movie_one = Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
+puts "#{movie_one.title} is created"
+movie_two = Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison", poster_url: "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 8.7)
+puts "#{movie_two.title} is created"
+movie_three = Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
+puts "#{movie_three.title} is created"
+movie_four =Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
+puts "#{movie_four.title} is created"
+
+file_one = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711535184/nature-3102762_1280_u7agzl.jpg")
+file_two = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711535414/Screenshot_2024-03-27_at_19.29.40_y4pode.png")
+file_three = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711534766/shutterstock_495240280_ms0ghe.jpg")
 
 
-Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
-Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison", poster_url: "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 8.7)
-Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
-Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
+lists = [{
+  name: "Drama",
+  io: file_one,
+  filename: "drama.jpg",
+  content_type: "image/jpg"
+  },
+  {
+  name: "Action",
+  io: file_two,
+  filename: "action.png",
+  content_type: "image/png"
+  },
+  {
+  name: "Comedy",
+  io: file_three,
+  filename: "comedy.jpg",
+  content_type: "image/png"
+  }
+]
 
-List.create(name: "Romance")
-List.create(name: "Action")
-List.create(name: "Comedy")
+main_list = []
+lists.each do |item|
+  # starting_time = start_times.sample
+  # Random datetime instance with set parameters from start_times array
+  e = List.create!(
+    name: item[:name]
+  )
+  puts "Attaching photos to #{e.name} "
+  e.photo.attach(io: item[:io], filename: item[:filename], content_type: item[:content_type])
+  main_list << e
+  puts "Event -> #{e.name} has been created"
+end
+
+puts "#{main_list.count} lists generated 🤹"
