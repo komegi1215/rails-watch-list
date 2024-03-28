@@ -12,26 +12,21 @@
     <div class="add-button">
       <%= link_to "add a movie", new_list_bookmark_path(@list) %>
     </div>
-    <% @bookmarks.each do |bookmark| %>
+    <% @movies["results"].each do |movie| %>
       <div class="bookmark-contianer">
         <div class="movie-cards">
           <div class ="movie-poster">
-            <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px, height: 200px;" %>
+            <%= image_tag "https://image.tmdb.org/t/p/w500#{movie["poster_path"]}", crop: :fill, class: "avatar-bordered-follow", style: "width: 100px; height: 200px;" %>
           </div>
           <div class="movie-description">
-            <h1><%= bookmark.movie.title %></h1>
+            <h1><%= movie["original_title"] %></h1>
             <% (1..10).each do |i| %>
-              <% if i <= bookmark.movie.rating.to_i %>
+              <% if i <= movie["vote_average"] %>
                 <i class="fa fa-star" aria-hidden="true"></i>
               <% end %>
             <% end %>
-            <% (1..10).each do |i| %>
-              <% if i > bookmark.movie.rating.to_i %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-            <h3 class = "overview"><%= bookmark.movie.overview %></h3>
-            <h3 class ="comments"><%= bookmark.comment %></h3>
+            <h3 class = "overview"><%= movie["overview"] %></h3>
+
           </div>
         </div>
       <% end %>
