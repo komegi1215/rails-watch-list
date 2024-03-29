@@ -25,11 +25,6 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmarks = @list.bookmarks
-
-    url = "https://tmdb.lewagon.com/movie/top_rated"
-    movie_api = URI.open(url).read
-    @movies= JSON.parse(movie_api)
-
   end
 
   private
