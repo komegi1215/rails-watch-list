@@ -1,7 +1,7 @@
 <div class = "container list-container">
   <div class = "list-nav">
     <% if @list.photo %>
-      <%= cl_image_tag @list.photo.key, height: 300, width: 400, class: "top-image", crop: :fill %>
+      <%= cl_image_tag @list.photo.key, class: "top-image" %>
     <% else %>
       <%= puts "no pic to show" %>
       <!-- Add a placeholder image or handle the case where photo is nil -->
@@ -16,7 +16,7 @@
       <div class="bookmark-contianer">
         <div class="movie-cards">
           <div class ="movie-poster">
-            <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "avatar-bordered-follow", style: "width: 100px; height: 200px;" %>
+            <%= image_tag bookmark.movie.poster_url, crop: :fill, class: "poster-size" %>
           </div>
           <div class="movie-description">
             <h1><%= bookmark.movie.title %></h1>
