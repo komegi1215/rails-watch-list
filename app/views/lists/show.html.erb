@@ -23,7 +23,7 @@
               <%= bookmark.movie.rating unless bookmark.movie.rating.nil? %>
                 <i class="fa fa-star" aria-hidden="true"></i>
             <h3 class = "overview"><%= bookmark.movie.overview%></h3>
-             <p class = "bookmark"><%= bookmark.comment%></p>
+            <p class = "bookmark"> <i class="fa-solid fa-quote-left"></i><%= bookmark.comment%><i class="fa-solid fa-quote-right"></i></p>
           </div>
         </div>
       <% end %>
