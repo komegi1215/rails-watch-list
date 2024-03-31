@@ -35,7 +35,7 @@ end
 
 file_one = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711535184/nature-3102762_1280_u7agzl.jpg")
 file_two = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711535414/Screenshot_2024-03-27_at_19.29.40_y4pode.png")
-file_three = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711534766/shutterstock_495240280_ms0ghe.jpg")
+file_three = URI.open("https://res.cloudinary.com/doulf2cl1/image/upload/v1711852692/anime_zbwsnd.jpg")
 
 
 lists = [{
@@ -51,9 +51,9 @@ lists = [{
   content_type: "image/png"
   },
   {
-  name: "Comedy",
+  name: "Anime",
   io: file_three,
-  filename: "comedy.jpg",
+  filename: "anime.jpg",
   content_type: "image/png"
   }
 ]
