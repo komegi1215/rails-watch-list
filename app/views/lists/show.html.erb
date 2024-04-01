@@ -20,10 +20,10 @@
           </div>
           <div class="movie-description">
             <h1><%= bookmark.movie.title %></h1>
-              <%= bookmark.movie.rating unless bookmark.movie.rating.nil? %>
+              <%= bookmark.movie.rating.round(1) unless bookmark.movie.rating.nil? %>
                 <i class="fa fa-star" aria-hidden="true"></i>
             <h3 class = "overview"><%= bookmark.movie.overview%></h3>
-            <p class = "bookmark"> <i class="fa-solid fa-quote-left"></i><%= bookmark.comment%><i class="fa-solid fa-quote-right"></i> <%= link_to "Delete", bookmark_path(bookmark), class: "delete-button" %></p>
+            <p class = "bookmark"> <i class="fa-solid fa-quote-left"></i><%= bookmark.comment%><i class="fa-solid fa-quote-right"></i> <%= link_to "Delete", list_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button"  %></p>
           </div>
         </div>
       <% end %>

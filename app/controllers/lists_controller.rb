@@ -25,6 +25,13 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmarks = @list.bookmarks
+    # @bookmark = @bookmarks.find(params[:bookmark_id])
+    # puts "Params: #{params.inspect}"
+
+
+    # # @list = @bookmark.list
+    # @bookmark.destroy
+    # redirect_to list_path(@list), status: :see_other
   end
 
   private
@@ -37,4 +44,7 @@ class ListsController < ApplicationController
     params.require(:movie).permit(:title, :overview, :poster_url, :rating)
   end
 
+  def bookmark_params
+    params.require(:bookmark).permit(:comment, :movie_id, :list_id)
+  end
 end
