@@ -32,6 +32,8 @@ gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
+gem 'rails-ujs'
+
 
 gem "dotenv-rails"
 
