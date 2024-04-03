@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "lists#index"
+  get 'bootstrap_confirm', to: 'bootstrap_confirm#action_name'
 
   resources :lists, only: [:new, :create, :index, :show] do
     resources :bookmarks, only: [:new, :create]

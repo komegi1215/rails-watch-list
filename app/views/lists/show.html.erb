@@ -23,7 +23,7 @@
               <%= bookmark.movie.rating.round(1) unless bookmark.movie.rating.nil? %>
                 <i class="fa fa-star" aria-hidden="true"></i>
             <h3 class = "overview"><%= bookmark.movie.overview%></h3>
-            <p class = "bookmark"> <i class="fa-solid fa-quote-left"></i><%= bookmark.comment%><i class="fa-solid fa-quote-right"></i> <%= button_to "Delete", bookmark, form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "delete-button" %></p>
+            <p class = "bookmark"> <i class="fa-solid fa-quote-left"></i><%= bookmark.comment%><i class="fa-solid fa-quote-right"></i> <%= button_to "Delete", bookmark, data: { turbo_method: :get, turbo_confirm: 'Are you sure?' }, method: :delete, class: "delete-button" %></p>
           </div>
         </div>
       <% end %>
