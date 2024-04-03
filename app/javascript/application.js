@@ -3,4 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
 import "@popperjs/core"
+import "./controllers/bootstrap_confirm"
+
 //= require rails-ujs
